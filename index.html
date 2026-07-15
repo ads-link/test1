@@ -1,24 +1,116 @@
-<h1>
-🎉 CHÀO MỪNG BẠN ĐẾN VỚI<br>
-THẾ GIỚI GIẢI TRÍ
-</h1>
+.welcome-box {
+        padding: 30px 22px 17px;
+      }
 
-<div class="age">
-Chỉ dành cho người từ 18 tuổi trở lên
-</div>
+      .title {
+        font-size: 22px;
+      }
 
-<button onclick="go()">
-TIẾP TỤC
-</button>
+      .age-label {
+        width: 100%;
+        margin-bottom: 30px;
+        padding: 11px 14px;
+        font-size: 14px;
+      }
 
-<div class="loading">
-<div class="bar"></div>
-</div>
+      .continue-button {
+        min-height: 61px;
+        font-size: 24px;
+      }
 
-<div class="note">
-Bạn cần tích xác nhận để tiếp tục.
-</div>
+      .note {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
 
-<div class="copy">
-© 2026 Thế Giới Giải Trí
-</div>
+<body>
+
+  <main class="welcome-box">
+
+    <h1 class="title">
+      🎉 CHÀO MỪNG BẠN ĐẾN VỚI<br>
+      THẾ GIỚI GIẢI TRÍ
+    </h1>
+
+    <div class="age-label">
+      Chỉ dành cho người từ 18 tuổi trở lên
+    </div>
+
+    <!-- Phần chữ bạn khoanh đỏ đã được xóa -->
+
+    <button
+      id="continueButton"
+      class="continue-button"
+      type="button"
+    >
+      TIẾP TỤC
+    </button>
+
+    <div
+      id="loadingBox"
+      class="loading-box"
+    >
+      <div class="loading-track">
+        <div class="loading-bar"></div>
+      </div>
+    </div>
+
+    <p
+      id="note"
+      class="note"
+    >
+      Bạn cần nhấn xác nhận để tiếp tục.
+    </p>
+
+    <p class="copyright">
+      © <span id="currentYear"></span> Thế Giới Giải Trí
+    </p>
+
+  </main>
+
+  <script>
+    const destinationUrl = "https://gaviet234.com";
+
+    const continueButton =
+      document.getElementById("continueButton");
+
+    const loadingBox =
+      document.getElementById("loadingBox");
+
+    const note =
+      document.getElementById("note");
+
+    const currentYear =
+      document.getElementById("currentYear");
+
+    currentYear.textContent =
+      new Date().getFullYear();
+
+    continueButton.addEventListener(
+      "click",
+      function () {
+
+        continueButton.disabled = true;
+
+        continueButton.textContent =
+          "ĐANG XÁC MINH...";
+
+        loadingBox.classList.add("show");
+
+        note.textContent =
+          "Vui lòng đợi 2 giây...";
+
+        setTimeout(function () {
+
+          window.location.href =
+            destinationUrl;
+
+        }, 2000);
+      }
+    );
+  </script>
+
+</body>
+</html>
