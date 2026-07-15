@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kênh giải trí</title>
+
+  <title>Trang giới thiệu</title>
 
   <style>
     * {
@@ -19,141 +20,163 @@
     body {
       min-height: 100vh;
       padding: 20px;
-      background: #07101f;
-      color: white;
+      background: #08101f;
+      color: #ffffff;
       font-family: Arial, Helvetica, sans-serif;
+
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .card {
+    .welcome-box {
       width: 100%;
-      max-width: 610px;
-      padding: 50px 44px 38px;
+      max-width: 490px;
+      padding: 38px 34px 22px;
       background: #101d34;
-      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.32);
     }
 
     .title {
-      margin: 0 0 32px;
-      font-size: 43px;
-      line-height: 1.2;
+      margin: 0 0 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      line-height: 1.3;
       font-weight: 900;
       text-transform: uppercase;
+
       text-shadow:
-        2px 2px 0 #d96b62,
-        4px 4px 0 rgba(0, 0, 0, 0.18);
+        1px 1px 0 rgba(255, 75, 75, 0.55),
+        2px 2px 0 rgba(58, 105, 255, 0.35);
     }
 
-    .age {
+    .age-label {
       display: inline-block;
-      margin-bottom: 37px;
-      padding: 13px 27px;
-      border: 1px solid #957500;
+      margin-bottom: 28px;
+      padding: 12px 22px;
+
+      border: 1px solid #806600;
       border-radius: 999px;
-      background: #302b12;
+
+      background: #302a12;
       color: #ffd83d;
+
+      font-size: 16px;
+      line-height: 1.3;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .destination-box {
+      margin-bottom: 26px;
+      padding: 16px;
+
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+
+      background: rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    .destination-label {
+      margin: 0 0 7px;
+      color: #aeb9cc;
+      font-size: 14px;
+    }
+
+    .destination-domain {
+      margin: 0;
+      color: #ffffff;
       font-size: 20px;
       font-weight: 800;
+      word-break: break-word;
     }
 
-    .button {
+    .continue-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       width: 100%;
-      min-height: 90px;
+      min-height: 70px;
+      padding: 15px 22px;
+
       border: 0;
       border-radius: 999px;
-      background: linear-gradient(180deg, #4e70ff, #3b5eef);
-      box-shadow: 0 14px 28px rgba(55, 86, 230, 0.4);
-      color: white;
-      font-size: 42px;
+
+      background: linear-gradient(
+        180deg,
+        #4b6fff 0%,
+        #3659eb 100%
+      );
+
+      box-shadow:
+        0 12px 28px rgba(58, 91, 237, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+      color: #ffffff;
+      text-decoration: none;
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
       font-weight: 900;
-      cursor: pointer;
+      text-transform: uppercase;
+
+      transition:
+        transform 0.18s ease,
+        filter 0.18s ease;
+    }
+
+    .continue-button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+    }
+
+    .continue-button:active {
+      transform: translateY(0);
     }
 
     .note {
-      margin: 23px 0 25px;
-      color: #c8d0df;
-      font-size: 18px;
+      margin: 23px 0 20px;
+      color: #b6c0d2;
+      font-size: 15px;
+      line-height: 1.5;
       text-align: center;
     }
 
     .copyright {
       margin: 0;
-      color: #8f9db5;
-      font-size: 17px;
+      color: #8f9bb0;
+      font-size: 15px;
       text-align: center;
     }
 
-    .loading-screen {
-      display: none;
-      width: 100%;
-      max-width: 610px;
-      min-height: 330px;
-      padding: 55px 40px;
-      background: #050505;
-      border: 1px solid #242424;
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    .loading-screen.show {
-      display: flex;
-    }
-
-    .spinner {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 28px;
-      border: 6px solid #444;
-      border-bottom-color: #ffd400;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
+    @media (max-width: 560px) {
+      body {
+        padding: 16px;
       }
-    }
 
-    .loading-title {
-      margin: 0 0 18px;
-      font-size: 27px;
-      font-weight: 800;
-    }
-
-    .countdown {
-      margin: 0;
-      color: #c4c4c4;
-      font-size: 17px;
-    }
-
-    @media (max-width: 620px) {
-      .card {
-        padding: 35px 24px 28px;
+      .welcome-box {
+        padding: 30px 22px 18px;
       }
 
       .title {
-        font-size: 30px;
-      }
-
-      .age {
-        width: 100%;
-        padding: 12px 15px;
-        font-size: 16px;
-        text-align: center;
-      }
-
-      .button {
-        min-height: 70px;
-        font-size: 30px;
-      }
-
-      .loading-title {
         font-size: 22px;
+      }
+
+      .age-label {
+        width: 100%;
+        padding: 11px 14px;
+        font-size: 14px;
+      }
+
+      .destination-domain {
+        font-size: 18px;
+      }
+
+      .continue-button {
+        min-height: 61px;
+        font-size: 23px;
       }
     }
   </style>
@@ -161,86 +184,48 @@
 
 <body>
 
-  <main id="welcomeCard" class="card">
+  <main class="welcome-box">
 
     <h1 class="title">
-      🎉 Bạn đang vào<br>
-      kênh giải trí
+      🎉 CHÀO MỪNG BẠN ĐẾN VỚI<br>
+      TRANG GIỚI THIỆU
     </h1>
 
-    <div class="age">
-      Chỉ dành cho người từ 18 tuổi trở lên
+    <div class="age-label">
+      Vui lòng kiểm tra địa chỉ trước khi truy cập
     </div>
 
-    <button id="continueButton" class="button" type="button">
-      TIẾP TỤC
-    </button>
+    <div class="destination-box">
+      <p class="destination-label">
+        Website bạn sắp mở:
+      </p>
+
+      <p class="destination-domain">
+        traigabao.com
+      </p>
+    </div>
+
+    <a
+      class="continue-button"
+      href="https://traigabao.com"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      TRUY CẬP WEBSITE
+    </a>
 
     <p class="note">
-      Bạn cần nhấn tiếp tục để vào trang.
+      Website chỉ được mở khi bạn chủ động bấm nút phía trên.
     </p>
-
     <p class="copyright">
-      © <span id="year"></span> Kênh Giải Trí
+      © <span id="currentYear"></span> Trang Giới Thiệu
     </p>
 
   </main>
 
-  <section id="loadingScreen" class="loading-screen">
-
-    <div class="spinner"></div>
-
-    <h2 class="loading-title">
-      Bạn đang được chuyển đến trang giải trí...
-    </h2>
-
-    <p id="countdown" class="countdown">
-      Vui lòng đợi 2 giây...
-    </p>
-
-  </section>
-
   <script>
-    https://gaviet.top/
-    const destinationUrl =
-
-    const welcomeCard =
-      document.getElementById("welcomeCard");
-
-    const loadingScreen =
-      document.getElementById("loadingScreen");
-
-    const continueButton =
-      document.getElementById("continueButton");
-    const countdown =
-      document.getElementById("countdown");
-
-    document.getElementById("year").textContent =
+    document.getElementById("currentYear").textContent =
       new Date().getFullYear();
-
-    continueButton.addEventListener("click", function () {
-      welcomeCard.style.display = "none";
-      loadingScreen.classList.add("show");
-
-      let seconds = 2;
-
-      countdown.textContent =
-        "Vui lòng đợi " + seconds + " giây...";
-
-      const timer = setInterval(function () {
-        seconds--;
-
-        if (seconds > 0) {
-          countdown.textContent =
-            "Vui lòng đợi " + seconds + " giây...";
-        } else {
-          clearInterval(timer);
-          countdown.textContent = "Đang chuyển hướng...";
-
-          window.location.href = destinationUrl;
-        }
-      }, 1000);
-    });
   </script>
 
 </body>
