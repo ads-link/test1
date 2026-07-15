@@ -202,7 +202,7 @@
 
   <script>
     https://gaviet.top/
-    const destinationUrl = "https://example.com";
+    const destinationUrl =
 
     const welcomeCard =
       document.getElementById("welcomeCard");
@@ -212,3 +212,36 @@
 
     const continueButton =
       document.getElementById("continueButton");
+    const countdown =
+      document.getElementById("countdown");
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    continueButton.addEventListener("click", function () {
+      welcomeCard.style.display = "none";
+      loadingScreen.classList.add("show");
+
+      let seconds = 2;
+
+      countdown.textContent =
+        "Vui lòng đợi " + seconds + " giây...";
+
+      const timer = setInterval(function () {
+        seconds--;
+
+        if (seconds > 0) {
+          countdown.textContent =
+            "Vui lòng đợi " + seconds + " giây...";
+        } else {
+          clearInterval(timer);
+          countdown.textContent = "Đang chuyển hướng...";
+
+          window.location.href = destinationUrl;
+        }
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
