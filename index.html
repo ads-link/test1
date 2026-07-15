@@ -1,215 +1,214 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kênh giải trí</title>
 
-<title>Chào mừng</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-}
+    body {
+      min-height: 100vh;
+      padding: 20px;
+      background: #07101f;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-body{
+    .card {
+      width: 100%;
+      max-width: 610px;
+      padding: 50px 44px 38px;
+      background: #101d34;
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+    }
 
-background:#08111f;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-padding:20px;
+    .title {
+      margin: 0 0 32px;
+      font-size: 43px;
+      line-height: 1.2;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow:
+        2px 2px 0 #d96b62,
+        4px 4px 0 rgba(0, 0, 0, 0.18);
+    }
 
-}
+    .age {
+      display: inline-block;
+      margin-bottom: 37px;
+      padding: 13px 27px;
+      border: 1px solid #957500;
+      border-radius: 999px;
+      background: #302b12;
+      color: #ffd83d;
+      font-size: 20px;
+      font-weight: 800;
+    }
 
-.box{
+    .button {
+      width: 100%;
+      min-height: 90px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #4e70ff, #3b5eef);
+      box-shadow: 0 14px 28px rgba(55, 86, 230, 0.4);
+      color: white;
+      font-size: 42px;
+      font-weight: 900;
+      cursor: pointer;
+    }
 
-width:490px;
-max-width:100%;
-background:#0f1d35;
-padding:35px;
+    .note {
+      margin: 23px 0 25px;
+      color: #c8d0df;
+      font-size: 18px;
+      text-align: center;
+    }
 
-box-shadow:0 0 35px rgba(0,0,0,.4);
+    .copyright {
+      margin: 0;
+      color: #8f9db5;
+      font-size: 17px;
+      text-align: center;
+    }
 
-}
+    .loading-screen {
+      display: none;
+      width: 100%;
+      max-width: 610px;
+      min-height: 330px;
+      padding: 55px 40px;
+      background: #050505;
+      border: 1px solid #242424;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
 
-h1{
+    .loading-screen.show {
+      display: flex;
+    }
 
-color:#fff;
-font-size:32px;
-font-weight:900;
-line-height:1.3;
-margin-bottom:25px;
-text-shadow:2px 2px 0 rgba(255,80,80,.4);
+    .spinner {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 28px;
+      border: 6px solid #444;
+      border-bottom-color: #ffd400;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
 
-}
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
-.age{
+    .loading-title {
+      margin: 0 0 18px;
+      font-size: 27px;
+      font-weight: 800;
+    }
 
-display:inline-block;
-padding:12px 22px;
-border-radius:40px;
-background:#2d2815;
-border:1px solid #8b6d00;
-color:#ffd84b;
-font-weight:bold;
-margin-bottom:30px;
+    .countdown {
+      margin: 0;
+      color: #c4c4c4;
+      font-size: 17px;
+    }
 
-}
+    @media (max-width: 620px) {
+      .card {
+        padding: 35px 24px 28px;
+      }
 
-p{
+      .title {
+        font-size: 30px;
+      }
 
-font-size:21px;
-line-height:1.8;
-color:#d5dceb;
-margin-bottom:18px;
+      .age {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 16px;
+        text-align: center;
+      }
 
-}
+      .button {
+        min-height: 70px;
+        font-size: 30px;
+      }
 
-button{
-
-width:100%;
-height:72px;
-border:none;
-border-radius:45px;
-
-background:linear-gradient(#4b6fff,#3558ea);
-
-color:#fff;
-
-font-size:38px;
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.2s;
-
-box-shadow:0 10px 20px rgba(70,100,255,.4);
-
-}
-
-button:hover{
-
-transform:translateY(-2px);
-
-}
-
-.loading{
-
-margin-top:15px;
-width:100%;
-height:5px;
-background:#24344d;
-border-radius:20px;
-display:none;
-overflow:hidden;
-
-}
-
-.bar{
-
-width:0%;
-height:100%;
-background:#fff;
-
-}
-
-.note{
-
-margin-top:18px;
-text-align:center;
-font-size:16px;
-color:#bcc4d3;
-
-}
-
-.copy{
-
-margin-top:20px;
-text-align:center;
-font-size:15px;
-color:#8792a8;
-
-}
-
-</style>
-
+      .loading-title {
+        font-size: 22px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="box">
+  <main id="welcomeCard" class="card">
 
-<h1>
-🎉 BẠN ĐANG VÀO<br>
-KÊNH GIẢI TRÍ BẢO STING
-</h1>
+    <h1 class="title">
+      🎉 Bạn đang vào<br>
+      kênh giải trí
+    </h1>
 
-<div class="age">
-Chỉ dành cho người từ 18 tuổi trở lên
-</div>
-<button onclick="go()">
+    <div class="age">
+      Chỉ dành cho người từ 18 tuổi trở lên
+    </div>
 
-TIẾP TỤC
+    <button id="continueButton" class="button" type="button">
+      TIẾP TỤC
+    </button>
 
-</button>
+    <p class="note">
+      Bạn cần nhấn tiếp tục để vào trang.
+    </p>
 
-<div class="loading">
+    <p class="copyright">
+      © <span id="year"></span> Kênh Giải Trí
+    </p>
 
-<div class="bar"></div>
+  </main>
 
-</div>
+  <section id="loadingScreen" class="loading-screen">
 
-<div class="note">
+    <div class="spinner"></div>
 
-Bạn cần tích tiếp tục để vào kênh.
+    <h2 class="loading-title">
+      Bạn đang được chuyển đến trang giải trí...
+    </h2>
 
-</div>
+    <p id="countdown" class="countdown">
+      Vui lòng đợi 2 giây...
+    </p>
 
-<div class="copy">
+  </section>
 
-© 2026 Thế Giới Giải Trí
+  <script>
+    https://gaviet.top/
+    const destinationUrl = "https://example.com";
 
-</div>
+    const welcomeCard =
+      document.getElementById("welcomeCard");
 
-</div>
+    const loadingScreen =
+      document.getElementById("loadingScreen");
 
-<script>
-
-function go(){
-
-document.querySelector("button").innerHTML="ĐANG XÁC MINH...";
-
-document.querySelector(".loading").style.display="block";
-
-let bar=document.querySelector(".bar");
-
-let width=0;
-
-let load=setInterval(function(){
-
-width++;
-
-bar.style.width=width+"%";
-
-if(width>=100){
-
-clearInterval(load);
-
-window.location.href="https://gaviet234.com";
-
-}
-
-},20);
-
-}
-
-</script>
-
-</body>
-
-</html>
+    const continueButton =
+      document.getElementById("continueButton");
